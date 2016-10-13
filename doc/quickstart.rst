@@ -30,7 +30,7 @@ It lists all the python packages in your environment, but the name of the enviro
 is at the end of the line at the top.  It should say ``something something/something/collection``
 which tell you that you are in the ``collection`` environment.
 
-If you see something more like ``/direct/pe1_data/userArea/XPDhome/xpdUser`` then
+If you see something more like ``/direct/pe2_data/xpdUser`` then
 type
 
 .. code-block:: python
@@ -94,7 +94,7 @@ This should return a list of metadata about your experiment, such as PI last nam
 please get your analysis environment set up by the instrument scientist before proceeding.
 
 3. Make sure the visualization software is running. We will use ``SrXgui`` and ``XPDsuite`` for visualizing data.
-Check that they are running by finding windows that looks like:
+Check that they are running by finding windows that look like:
 
 **XPDsuite**
 
@@ -223,6 +223,11 @@ what your ``saf_number`` is you can get it by typing following command in your `
    'bt_wavelength': 0.1832}
 
 where the ``saf_number`` in this case is ``300336``.
+
+.. note::
+
+  Note that the file must be saved in the Import folder with name having the format ``<saf_number>_sample.xlsx``.  If your
+  operating system added a version number, for example ``300638_sample (1).xlsx``, make sure to remove the version number.
 
 Next type:
 

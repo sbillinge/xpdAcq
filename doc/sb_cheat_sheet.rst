@@ -16,7 +16,7 @@ Start a beamtime
 
 .. code-block:: python
 
-  bt = _end_beamtime()
+  _end_beamtime()
 
 3. run the start-beamtime sequence
 
@@ -26,11 +26,11 @@ Start a beamtime
                        experimenters = ['Emma', 'Watson', 'Tim', 'Liu'],
                        wavelength=0.184649)
 
-4. link bt to prun
+4. link bt to xrun
 
 .. code-block:: python
 
-  prun.beamtime = bt
+  xrun.beamtime = bt
 
 5. Copy the Excel spreadsheet provided by the experimenters with their samples in it to the ``xpdUser/import`` directory. Check that it has the name ``<saf_number>_samples.xlsx``
 where the <saf_number> must match that of the current beamtime.  If the user didn't supply such a thing, then copy the file ``300000_samples.xls`` from the ``xpdConfig`` directory
@@ -40,16 +40,24 @@ where the <saf_number> must match that of the current beamtime.  If the user did
 
 .. code-block:: python
 
-  load_sample_info()
+  import_sample_info()
 
 .. Note::
 
   The sample objects may be updated at any time by editing the spreadsheet in the ``xpdUser/import`` directory
-  and rerunning ``load_sample_info()``
+  and rerunning ``import_sample_info()``. Objects are `overwritten`, so it is recommended to edit and/or add
+  samples to the spreadsheet but not to delete old sample info unless it is not wanted.
   
 8. calibrate the wavelength.
 
    FIXME
+   
+9. load the wavelength by typing:
+
+.. code-block:: python
+
+  bt.wavelength = <value of wavelength in angstroms>
+
 
 Things should now be set up for the user to run the experiment.  Information about this is in
 the main part of the documentation.
